@@ -32,13 +32,9 @@ class Album extends Component {
                         <col id="song-duration-column" />
                     </colgroup>  
                     <tbody>  
-                        // need to display a song's number (starting with 1), title, and duration for every song
                         {
-                            this.state.album.songs.map( (song, index) => {
-                                <tr key={index} >
-                                    {song.title}
-                                </tr>
-                                }
+                            this.state.album.songs.map( (song, index) => 
+                                <tr key={index}> {index + 1} {song.title} {song.duration}</tr>
                             )
                         }
                     </tbody>
