@@ -59,18 +59,18 @@ class Album extends Component {
           handlePlayPauseButtons(song, songIndex) {
             const isSameSong = this.state.currentSong === song;
             const isHoveredSong = this.state.currentHoveredSong === song;
-            if(isHoveredSong) {
-                return <ion-icon name="play"></ion-icon>;
-            } else if(isSameSong) {
-                if(this.state.isPlaying) {
+            if (isSameSong) {
+                if (this.state.isPlaying) {
                     return <ion-icon name="pause"></ion-icon>;
                 } else {
-                    return <ion-icon name="play"></ion-icon>;
+                    return <ion-icon name="play"></ion-icon>; 
                 }
+            } else if (isHoveredSong) {
+                return <ion-icon name="play"></ion-icon>;
             } else {
                 return songIndex + 1;
             }
-          }
+        }
 
     render() {
         return (
