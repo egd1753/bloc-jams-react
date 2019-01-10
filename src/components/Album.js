@@ -122,14 +122,7 @@ class Album extends Component {
             this.audioElement.volume = e.target.value;
             this.setState({ volume: e.target.value });
           }
-/*
-          formatTime(timeSec) { 
-            const minutes = Math.floor(timeSec / 60);
-            const seconds = Math.floor(timeSec % 60);
-            const formattedTime = minutes + ':' + seconds;
-            return ((timeSec === NaN) ? "-:--" : formattedTime);
-          }
-*/
+          
           formatTime(timeSec) {
             const minutes = Math.floor(timeSec / 60);
             const seconds = (timeSec % 60 / 100).toFixed(2); 
