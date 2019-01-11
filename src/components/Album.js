@@ -63,12 +63,8 @@ class Album extends Component {
           handlePlayPauseButtons(song, songIndex) {
             const isSameSong = this.state.currentSong === song;
             const isHoveredSong = this.state.currentHoveredSong === song;
-            if (isSameSong) {
-                if (this.state.isPlaying) {
+            if (isSameSong && this.state.isPlaying) {
                     return <ion-icon name="pause"></ion-icon>;
-                } else {
-                    return <ion-icon name="play"></ion-icon>; 
-                }
             } else if (isHoveredSong) {
                 return <ion-icon name="play"></ion-icon>;
             } else {
@@ -127,11 +123,11 @@ class Album extends Component {
             this.setState({ volume: e.target.value });
           }
 
-          formatTime(timeSec) { 
+          formatTime(timeSec) {
             const minutes = Math.floor(timeSec / 60);
-            const seconds = Math.floor(timeSec % 60);
-            const formattedTime = minutes + ':' + seconds;
-            return ((timeSec === NaN) ? "-:--" : formattedTime);
+            const seconds = (timeSec % 60 / 100).toFixed(2);
+            const formattedTime = minutes + ":" + seconds.substr(2, 2);
+            return ( (timeSec === NaN ) ? "-:--" : formattedTime);
           }
 
     render() {
@@ -160,8 +156,10 @@ class Album extends Component {
                                     onClick={() => this.handleSongClick(song)} 
                                     onMouseEnter={() => this.handleSetHoveredSong(song)} 
                                     onMouseLeave={() => this.handleUnsetHoveredSong(song)}
-                                >
-                                {this.handlePlayPauseButtons(song, index)} {song.title} {song.duration} 
+                                    >
+                                    {this.handlePlayPauseButtons(song, index)}              
+                                        <td>{ song.title }</td>      
+                                        <td>{ this.formatTime(song.duration) }</td>  
                                 </tr>
                             ) 
                         } 
