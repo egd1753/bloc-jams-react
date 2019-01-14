@@ -1,0 +1,36 @@
+.player-bar {
+    background-image: linear-gradient(grey,black);
+
+}
+
+.horizontal, #horizontal {
+    display: inline-block;
+}
+
+#time-control {
+    width: 50%;
+    margin-left: 25%;
+    
+}
+
+#buttons {
+    padding-top: 2%;
+}
+
+#current-time {
+    float: left;
+}
+
+#total-time {
+    float: right;
+}
+
+#volume-control {
+    width: 30%;
+    margin-left: 35%;
+    
+}
+
+#volume-down, #volume-slider, #volume-up {
+    display: inline-block;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
 import PlayerBar from './PlayerBar';
+import './Album.css';
 
 class Album extends Component {
     constructor(props) {
@@ -68,7 +69,7 @@ class Album extends Component {
             } else if (isHoveredSong) {
                 return <ion-icon name="play"></ion-icon>;
             } else {
-                return songIndex + 1;
+                return songIndex + 1 + ".";
             }
         }
 
@@ -133,20 +134,32 @@ class Album extends Component {
     render() {
         return (
             <section className="album">
+
                 <section id="album-info">
-                    <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title}/>
+                
+                    <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title} width='30%' height='30%' />
+
                     <div className="album-details">
                         <h1 id="album-title">{this.state.album.title}</h1>
-                        <h2 className="artist">{this.state.album.artist}</h2>
-                        <div id="release-info">{this.state.album.releaseInfo}</div>
+                        <h6 className="artist">By <span id='artist-name'>{this.state.album.artist}</span></h6>
+                        <h6 id="release-info">{this.state.album.releaseInfo}</h6>
                     </div>
+
                 </section>
+
                 <table id="song-list">
                     <colgroup>
                         <col id="song-number-column" />
                         <col id="song-title-column" />
                         <col id="song-duration-column" />
-                    </colgroup>  
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th id='hash-number'>#</th>
+                            <th id='title-header'>Title</th>
+                            <th id='timer-icon'><i className="material-icons">timer</i></th>
+                        </tr>
+                    </thead>  
                     <tbody>  
                         {
                             this.state.album.songs.map( (song, index) => 
@@ -157,14 +170,15 @@ class Album extends Component {
                                     onMouseEnter={() => this.handleSetHoveredSong(song)} 
                                     onMouseLeave={() => this.handleUnsetHoveredSong(song)}
                                     >
-                                    {this.handlePlayPauseButtons(song, index)}              
-                                        <td>{ song.title }</td>      
-                                        <td>{ this.formatTime(song.duration) }</td>  
+                                        <td>{this.handlePlayPauseButtons(song, index)}</td>              
+                                        <td className='song-title'>{ song.title }</td>      
+                                        <td className='song-duration'>{ this.formatTime(song.duration) }</td>  
                                 </tr>
                             ) 
                         } 
                     </tbody>
                 </table>
+
                 <PlayerBar 
                     isPlaying={this.state.isPlaying} 
                     currentSong={this.state.currentSong} 
@@ -178,6 +192,7 @@ class Album extends Component {
                     handleTimeChange={(e) => this.handleTimeChange(e)}
                     formatTime={(timeSec) => this.formatTime(timeSec)}
                 />
+                
             </section>
         );
     }

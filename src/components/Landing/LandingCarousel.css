@@ -1,9 +1,9 @@
 
 * {box-sizing:border-box}
-/*
-/* Slideshow container */
+
+
 .slideshow-container {
-  max-width: 1000px;
+  width: 50%;
   position: relative;
   margin: auto;
 }
@@ -49,22 +49,34 @@
 .point {
     position: relative;
     width: 100%;
+    padding-bottom: 5%;
 }
 
 /* Caption text */
-p {
+.point-description {
     color: #f2f2f2;
-    font-size: 15px;
+    font-size: 150%;
     padding: 8px 12px;
     position: absolute;
-    bottom: 8px;
+    bottom: 10%;
     width: 100%;
     text-align: center;
   }
 
-  h2 {
+  .point-title {
       position: absolute;
       top: 10%;
       left: 0;
       width: 100%;
+      font-size: 400%;
+      font-weight: bold;
+      color: white;
+      opacity: 1;
   }
+
+  #mobile-title {
+      color: black;
+  }
+
+  
+  

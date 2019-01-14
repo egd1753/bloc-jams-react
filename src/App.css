@@ -4,5 +4,21 @@
 
 
 .App-link {
-  color: #61dafb;
+  color: white;
+}
+
+.mdl-layout__content {
+  background-image: linear-gradient(grey,rgba(0, 174, 255, 0.651));
+}
+
+#appheader-title {
+  color: white;
+  font-weight: bold;
+  font: helvetica;
+  font-size: 200%;
+}
+
+#landing-link, #library-link {
+  color: white;
+  font-size: 150%;
 }

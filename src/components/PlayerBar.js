@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './PlayerBar.css';
 
 class PlayerBar extends Component {
     render() {
@@ -6,46 +7,69 @@ class PlayerBar extends Component {
             <section className='player-bar'>
             
                 <section id="buttons">
-                    <button id="previous" onClick={this.props.handlePrevClick}>
-                        <ion-icon name="skip-backward"></ion-icon>
+                
+                    <button
+                        className='mdl-button mdl-js-button mdl-button--icon'  
+                        id="previous" 
+                        onClick={this.props.handlePrevClick}
+                    >
+                        <i class="material-icons">skip_previous</i>
                     </button>
-                    <button id="play-pause" onClick={this.props.handleSongClick} >
+
+                    <button 
+                        className='mdl-button mdl-js-button mdl-button--icon'
+                        id="play-pause" 
+                        onClick={this.props.handleSongClick} 
+                    >
                         <span>
-                            {this.props.isPlaying ? <ion-icon name='pause'></ion-icon> : <ion-icon name='play'></ion-icon>}
+                            {this.props.isPlaying ? <i className="material-icons">pause</i>: <i className="material-icons">play_circle_outline</i>}
                         </span>
                     </button>
-                    <button id="next" onClick={this.props.handleNextClick}>
-                        <ion-icon name="skip-forward"></ion-icon>
+
+                    <button 
+                        className='mdl-button mdl-js-button mdl-button--icon'
+                        id="next" 
+                        onClick={this.props.handleNextClick}
+                    >
+                        <i class="material-icons">skip_next</i>
                     </button>
                 </section>
 
                 <section id="time-control">
-                    <div className="current-time">{this.props.formatTime(this.props.currentTime)}</div>
-                    <input 
-                        type="range" 
-                        className="seek-bar" 
-                        value={(this.props.currentTime / this.props.duration) || 0} 
-                        max="1" 
-                        min="0" 
-                        step="0.01" 
-                        onChange={this.props.handleTimeChange}
-                    />   
-                    <div className="total-time">{this.props.formatTime(this.props.duration)}</div> 
+                    <div className='horizontal' id="current-time">{this.props.formatTime(this.props.currentTime)}</div>
+                    <div className='horizontal' id='seekbar'>
+                        <input 
+                            type="range" 
+                            className="mdl-slider mdl-js-slider"
+                            id='horizontal'  
+                            min="0"
+                            max="100" 
+                            value={(this.props.currentTime / this.props.duration) || 0} 
+                            step="0.01" 
+                            onChange={this.props.handleTimeChange}
+                        />
+                    </div>   
+                    <div className='horizontal' id="total-time">{this.props.formatTime(this.props.duration)}</div> 
                 </section>
 
+
+
                 <section id="volume-control">
-                    <div>{this.props.volume}</div>
-                    <ion-icon name="volume-low"></ion-icon>
+    
+                    <i className="material-icons" id='volume-down'>volume_down</i>
+
                     <input 
                         type="range" 
-                        className="seek-bar" 
+                        className="mdl-slider mdl-js-slider"
+                        id="volume-slider" 
                         min="0" 
                         max="1" 
                         value={this.props.volume} 
                         step=".01"
                         onChange={this.props.handleVolumeChange}
                     />
-                    <ion-icon name="volume-high"></ion-icon>
+
+                    <i className="material-icons" id='volume-up'>volume_up</i>
                 </section>
 
             </section>
