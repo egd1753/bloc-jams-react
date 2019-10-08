@@ -1,0 +1,79 @@
+.album {
+    color: white;
+}
+
+#song-list {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    font-size: 120%;
+    border: thin solid;
+    border-collapse: collapse;
+}
+
+#song-list tr {
+    border: thin solid;
+}
+
+#song-list td {
+    line-height: 180%;
+}
+
+
+.song-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: left;
+}
+
+#title-header {
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 90%;
+}
+
+#hash-number {
+    font-weight: normal;
+}
+
+.song-duration, #timer-icon {
+    text-align: right;
+    padding-right: 2%;
+}
+
+#album-info {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+
+#album-cover-art {
+    box-sizing: border-box;
+    float: left;
+    width: 35%;
+    height: 35%;
+    padding: 2%;
+}
+
+.album-details {
+    box-sizing: border-box;
+    padding-top: 13%;
+    padding-right: 10%;
+    text-align: left;
+}
+
+#album-title {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#artist-name {
+    font-weight: bold;
+}
+
+
+
+
+
+
